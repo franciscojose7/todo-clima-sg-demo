@@ -10,6 +10,10 @@
 <meta property="og:description" content="Instalación, service, reparación y venta de equipos. Presupuesto por WhatsApp, sin vueltas. 5,0 ★ en Google.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_UY">
+<meta property="og:url" content="https://franciscojose7.github.io/todo-clima-sg-demo/">
+<meta property="og:image" content="https://franciscojose7.github.io/todo-clima-sg-demo/fotos/logo-todo-clima.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="fotos/logo-todo-clima.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,6 +24,8 @@
   "@type": "HVACBusiness",
   "name": "Todo Clima SG",
   "description": "Aire acondicionado y electricidad. Instalación, mantenimiento, traslados, reparaciones y venta de equipos en Montevideo, Uruguay.",
+  "url": "https://franciscojose7.github.io/todo-clima-sg-demo/",
+  "image": "https://franciscojose7.github.io/todo-clima-sg-demo/fotos/logo-todo-clima.jpg",
   "telephone": "+59894677178",
   "address": {
     "@type": "PostalAddress",
@@ -305,20 +311,26 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .vs-card li i{flex:none;font-style:normal;font-weight:800;color:#0F141C}
 
 /* ---------- galería / trabajos ---------- */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 @media(max-width:900px){.gal{grid-template-columns:repeat(2,1fr)}}
 .slot{
-  aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;position:relative;
+  margin:0;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;position:relative;
   background:linear-gradient(150deg,#171E2A,#0C1017);border:1px solid var(--line);
   display:grid;place-items:center;
 }
-.slot:nth-child(1),.slot:nth-child(4){aspect-ratio:4/5}
-.slot::after{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(50% 50% at 50% 40%,rgba(52,174,232,.10),transparent 70%);
-}
 .slot span{position:relative;z-index:2;font-size:12.5px;color:#5E6B7D;font-weight:600;letter-spacing:.04em;text-align:center;padding:0 14px}
-.slot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.slot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .5s ease}
+.slot:hover img{transform:scale(1.045)}
+.slot figcaption{
+  position:absolute;left:0;right:0;bottom:0;z-index:3;
+  padding:40px 15px 14px;font-size:13.2px;font-weight:600;line-height:1.4;color:#fff;
+  background:linear-gradient(transparent,rgba(6,9,13,.35) 35%,rgba(6,9,13,.9));
+}
+.slot.brand{background:#000}
+.slot.brand img{object-fit:contain;padding:11%;padding-bottom:22%}
+.slot.brand:hover img{transform:none}
+.slot.brand figcaption{background:linear-gradient(transparent,rgba(0,0,0,.85) 40%,#000);color:var(--gold-soft)}
+@media(max-width:620px){.slot figcaption{font-size:12px;padding:34px 12px 12px}}
 
 /* ---------- reseñas ---------- */
 .rev{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -749,9 +761,10 @@ footer{border-top:1px solid var(--line);padding:44px 0 clamp(96px,14vw,44px)}
 </section>
 
 <!-- ================= TRABAJOS =================
-     PARA CAMBIAR LAS FOTOS: dentro de cada <div class="slot"> reemplazá la línea
-     <span>...</span> por <img src="fotos/instalacion-1.jpg" alt="Instalación de split en living">
-     Ideal: fotos verticales, la misma cantidad de luz en todas.
+     PARA AGREGAR UNA FOTO MÁS: copiá un bloque <figure class="slot"> entero y cambiale
+     el src, el alt y el figcaption. La grilla se reacomoda sola.
+     Ideal: fotos verticales (4:5), comprimidas a menos de 300 KB.
+     El object-position del style controla qué parte de la foto se ve en el recorte.
 ============================================================================== -->
 <section class="sec-sm">
   <div class="wrap">
@@ -766,10 +779,22 @@ footer{border-top:1px solid var(--line);padding:44px 0 clamp(96px,14vw,44px)}
       </a>
     </div>
     <div class="gal">
-      <div class="slot"><span>Instalación en living<br>· foto ·</span></div>
-      <div class="slot"><span>Unidad exterior<br>· foto ·</span></div>
-      <div class="slot"><span>Antes y después<br>de un service · foto ·</span></div>
-      <div class="slot"><span>Instalación en dormitorio<br>· foto ·</span></div>
+      <figure class="slot">
+        <img src="fotos/service-antes-despues.jpg" alt="Limpieza profunda de una unidad interior de aire acondicionado, con la bolsa de lavado colocada" loading="lazy" style="object-position:center 50%">
+        <figcaption>Service con bolsa: la pared queda intacta</figcaption>
+      </figure>
+      <figure class="slot">
+        <img src="fotos/instalacion-dormitorio.jpg" alt="Unidad exterior Beko inverter instalada sobre ménsula en una pared de ladrillo" loading="lazy" style="object-position:center 42%">
+        <figcaption>Exterior sobre ménsula, con desagote</figcaption>
+      </figure>
+      <figure class="slot">
+        <img src="fotos/unidad-exterior.jpg" alt="Unidad exterior inverter instalada en el balcón de un apartamento" loading="lazy" style="object-position:center 55%">
+        <figcaption>En balcón, sin robarle lugar al vecino</figcaption>
+      </figure>
+      <figure class="slot brand">
+        <img src="fotos/logo-todo-clima.jpg" alt="Logo de Todo Clima Servicios Generales" loading="lazy">
+        <figcaption>Instalación, service y reparación</figcaption>
+      </figure>
     </div>
   </div>
 </section>
